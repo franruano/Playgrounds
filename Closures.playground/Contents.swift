@@ -66,8 +66,29 @@ incrementByTen()
 //Closures Are Reference Types
 
 // ******* https://www.weheartswift.com/closures/ **********
+var multipleParametersAndReturnValue =
+    { (first: String, second: String) -> String in
+        return first + " " + second
+}
+multipleParametersAndReturnValue("John", "Doe")
 
 
+//MAP go through all the sequence and return an array
+let dic: [String: Any?] = ["uno":"I have", "dos": 1, "tres": "dog", "cuatro":nil]
+let arrReturn = dic.map({ (key, value) in
+    value
+})
+print(arrReturn)
 
+let arrReturn2 = dic
+            .filter({ (key, value) in value != nil })
+            .map({ (key, value) in value })
+print(arrReturn2)
+
+let arrReturn3 = dic
+    .filter({ (key, value) in value != nil })
+    .map({ (key, value) in String(describing: value!) })
+    .reduce("") { $0 + " " + $1 }
+print(arrReturn3)
 
 
